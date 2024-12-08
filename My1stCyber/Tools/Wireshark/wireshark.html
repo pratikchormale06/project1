@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireshark Tool</title>
+    <link rel="stylesheet" href="wireshark.css">
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : Wireshark </h1>
+    </header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="#" class="navbar-logo">PenTest Tools</a>
+                <button class="navbar-toggle">☰</button>
+                <ul class="navbar-menu">
+                    <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                    <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                    <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                    <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                    <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+<main>
+    <section id="about">
+        <h2>About Wireshark</h2>
+        <p>It is a free and open-source packet analyzer. It is used for network troubleshooting, analysis, software and communications protocol development, and education.</p>
+        <h3>Key Features</h3>
+        <ul>
+            <li>Real-time packet capture and analysis.</li>
+            <li>Support for hundreds of protocols and media types.</li>
+            <li>Powerful display filters for detailed analysis.</li>
+            <li>Color coding of packets for easy identification.</li>
+            <li>Ability to export captured data in various formats.</li>
+        </ul>
+        <h3>Use Cases</h3>
+        <ul>
+            <li>Network troubleshooting: Identify issues in network traffic.</li>
+            <li>Security analysis: Monitor for suspicious activity and potential breaches.</li>
+            <li>Protocol development: Test and debug custom protocols.</li>
+            <li>Educational purposes: Teach networking concepts and packet analysis.</li>
+        </ul>
+        <h3>Community and Support</h3><br>
+        <p>Wireshark has a large and active community. Users can access:</p>
+        <ul>
+            <li>Official documentation and user guides on the <a href="https://www.wireshark.org/docs/wsug_html_chunked/">Wireshark website</a>.</li>
+            <li>Community forums for troubleshooting and sharing knowledge.</li>
+            <li>Regular updates and new features from the development team.</li>
+        </ul>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        <p>To install Wireshark, follow these steps:</p>
+        <ol>
+            <li>Download the installer from the <a href="https://www.wireshark.org/download.html">official website</a>.</li>
+            <li>Run the installer and follow the on-screen instructions.</li>
+            <li>Launch Wireshark after installation.</li>
+        </ol>
+    </section>
+
+    <section id="usage">
+        <h2>How to Use Wireshark</h2>
+        <p>To capture packets using Wireshark:</p>
+        <ol>
+            <li>Select the network interface you want to capture traffic from.</li>
+            <li>Click on the "Start capturing packets" button.</li>
+            <li>Use filters to analyze specific traffic.</li>
+            <li>To stop capturing, click on the "Stop capturing packets" button.</li>
+            <li>To analyze captured packets, click on a packet to view its details.</li>
+            <li>Use the "Display Filter" bar to filter packets by protocol, IP address, or other criteria. For example, to filter HTTP traffic, type <code>http</code> in the filter bar.</li>
+            <li>Right-click on a packet to follow the TCP stream, which allows you to see the entire conversation between two endpoints.</li>
+            <li>Export captured data by going to <code>File > Export Specified Packets</code> to save your analysis for later review.</li>
+        </ol>
+        <p>For more advanced usage, consider exploring:</p>
+        <ul>
+            <li>Creating custom display filters for specific analysis needs.</li>
+            <li>Using Wireshark's built-in tools for protocol analysis.</li>
+            <li>Setting up capture options to limit the amount of data collected.</li>
+        </ul>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+    <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+    <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+</footer>
+<script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

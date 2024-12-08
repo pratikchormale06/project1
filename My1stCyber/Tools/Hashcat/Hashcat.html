@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashcat Tool</title>
+    <link rel="stylesheet" href="Hashcat.css">
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : Hashcat</h1>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">PenTest Tools</a>
+            <button class="navbar-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<main>
+    <section id="about">
+        <h2>About Hashcat</h2>
+        <p>Hashcat is the world's fastest and most advanced password recovery tool. It can perform various types of password cracking attacks using different algorithms and supports both CPU and GPU-based cracking.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Multi-GPU support (up to 128 devices)</li>
+            <li>Multiple attack modes</li>
+            <li>Support for 300+ hash types</li>
+            <li>Built-in benchmarking</li>
+            <li>Distributed cracking</li>
+            <li>Resume capability</li>
+            <li>Rule-based attack customization</li>
+        </ul>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        
+        <h3>On Linux</h3>
+        <div class="code-block">
+            <code>sudo apt update && sudo apt install hashcat</code>
+        </div>
+
+        <h3>From Source</h3>
+        <div class="code-block">
+            <code>git clone https://github.com/hashcat/hashcat.git
+cd hashcat
+make
+sudo make install</code>
+        </div>
+
+        <h3>Verify Installation</h3>
+        <div class="code-block">
+            <code>hashcat --version</code>
+        </div>
+    </section>
+
+    <section id="attack-modes">
+        <h2>Attack Modes</h2>
+        <div class="mode-grid">
+            <div class="mode-card">
+                <h3>Straight (-a 0)</h3>
+                <p>Dictionary attack using a wordlist</p>
+                <div class="code-block">
+                    <code>hashcat -a 0 -m 0 hash.txt wordlist.txt</code>
+                </div>
+            </div>
+
+            <div class="mode-card">
+                <h3>Combination (-a 1)</h3>
+                <p>Combines words from two wordlists</p>
+                <div class="code-block">
+                    <code>hashcat -a 1 -m 0 hash.txt wordlist1.txt wordlist2.txt</code>
+                </div>
+            </div>
+
+            <div class="mode-card">
+                <h3>Brute-Force (-a 3)</h3>
+                <p>Tests all possible combinations</p>
+                <div class="code-block">
+                    <code>hashcat -a 3 -m 0 hash.txt ?a?a?a?a?a?a</code>
+                </div>
+            </div>
+
+            <div class="mode-card">
+                <h3>Hybrid (-a 6 or -a 7)</h3>
+                <p>Combines dictionary and mask attacks</p>
+                <div class="code-block">
+                    <code>hashcat -a 6 -m 0 hash.txt wordlist.txt ?d?d?d?d</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="common-hash-types">
+        <h2>Common Hash Types</h2>
+        <div class="hash-grid">
+            <div class="hash-type">
+                <h3>MD5 (-m 0)</h3>
+                <code>hashcat -m 0 hash.txt wordlist.txt</code>
+            </div>
+            <div class="hash-type">
+                <h3>SHA1 (-m 100)</h3>
+                <code>hashcat -m 100 hash.txt wordlist.txt</code>
+            </div>
+            <div class="hash-type">
+                <h3>SHA256 (-m 1400)</h3>
+                <code>hashcat -m 1400 hash.txt wordlist.txt</code>
+            </div>
+            <div class="hash-type">
+                <h3>SHA512 (-m 1700)</h3>
+                <code>hashcat -m 1700 hash.txt wordlist.txt</code>
+            </div>
+            <div class="hash-type">
+                <h3>NTLM (-m 1000)</h3>
+                <code>hashcat -m 1000 hash.txt wordlist.txt</code>
+            </div>
+            <div class="hash-type">
+                <h3>WPA/WPA2 (-m 2500)</h3>
+                <code>hashcat -m 2500 hash.txt wordlist.txt</code>
+            </div>
+        </div>
+    </section>
+
+    <section id="practical-examples">
+        <h2>Practical Examples</h2>
+
+        <h3>1. Basic MD5 Cracking</h3>
+        <div class="code-block">
+            <code>hashcat -m 0 -a 0 hash.txt rockyou.txt</code>
+            <p>Cracks MD5 hashes using the rockyou wordlist</p>
+        </div>
+
+        <h3>2. WPA/WPA2 Cracking</h3>
+        <div class="code-block">
+            <code>hashcat -m 2500 -a 0 capture.hccapx wordlist.txt</code>
+            <p>Cracks WPA/WPA2 handshake captures</p>
+        </div>
+
+        <h3>3. Rule-Based Attack</h3>
+        <div class="code-block">
+            <code>hashcat -m 0 -a 0 hash.txt wordlist.txt -r rules/best64.rule</code>
+            <p>Uses rules to modify wordlist entries</p>
+        </div>
+    </section>
+
+    <section id="advanced-usage">
+        <h2>Advanced Usage</h2>
+
+        <h3>Custom Character Sets</h3>
+        <div class="code-block">
+            <ul>
+                <li><code>?l</code> - lowercase letters (a-z)</li>
+                <li><code>?u</code> - uppercase letters (A-Z)</li>
+                <li><code>?d</code> - digits (0-9)</li>
+                <li><code>?s</code> - special characters</li>
+                <li><code>?a</code> - all characters</li>
+            </ul>
+        </div>
+
+        <h3>Performance Tuning</h3>
+        <div class="code-block">
+            <code>hashcat -m 0 hash.txt -w 3 --kernel-accel 1 --kernel-loops 1</code>
+            <p>Optimizes performance with workload and kernel settings</p>
+        </div>
+    </section>
+
+    <section id="best-practices">
+        <h2>Best Practices</h2>
+        <ul>
+            <li><strong>Hardware Selection:</strong> Use GPU for better performance</li>
+            <li><strong>Wordlist Choice:</strong> Use appropriate wordlists for your target</li>
+            <li><strong>Rule Selection:</strong> Start with basic rules before complex ones</li>
+            <li><strong>Performance Monitoring:</strong> Watch temperature and resource usage</li>
+            <li><strong>Documentation:</strong> Keep track of successful methods</li>
+        </ul>
+    </section>
+
+    <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        <div class="troubleshooting-grid">
+            <div class="issue-card">
+                <h3>Low Performance</h3>
+                <ul>
+                    <li>Update GPU drivers</li>
+                    <li>Check thermal throttling</li>
+                    <li>Optimize workload settings</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h3>Hash Format Errors</h3>
+                <ul>
+                    <li>Verify hash format</li>
+                    <li>Check for extra characters</li>
+                    <li>Use correct hash mode</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h3>GPU Not Detected</h3>
+                <ul>
+                    <li>Update OpenCL/CUDA</li>
+                    <li>Check GPU compatibility</li>
+                    <li>Verify driver installation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+    <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+    <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+</footer>
+<script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

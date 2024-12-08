@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nmap Tool Overview</title>
+    <link rel="stylesheet" href="nmap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : Nmap Tool</h1>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">PenTest Tools</a>
+            <button class="navbar-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section id="about">
+            <h1>About Nmap</h1>
+            <p>Nmap (Network Mapper) is an open-source tool for network exploration and security auditing. It is widely used by network administrators and security professionals to discover hosts and services on a computer network, thus creating a "map" of the network.</p>
+            <p>Nmap can be used for various tasks, including:</p>
+            <ul>
+                <li>Network inventory</li>
+                <li>Managing service upgrade schedules</li>
+                <li>Monitoring host or service uptime</li>
+                <li>Security auditing</li>
+            </ul>
+        </section>
+
+        <section id="usage">
+            <h2>How to Use Nmap for Penetration Testing</h2>
+            <p>To effectively use Nmap for penetration testing, follow these steps:</p>
+            <ol>
+                <li><strong>Install Nmap:</strong> Download and install Nmap from the official website: <a href="https://nmap.org/download.html" target="_blank">nmap.org/download.html</a>.</li>
+                <li><strong>Open a Terminal:</strong> Launch a terminal or command prompt on your system.</li>
+                <li><strong>Basic Scanning:</strong> Use the command <code>nmap -sP 192.168.1.0/24</code> to discover live hosts in a subnet.</li>
+                <li><strong>Port Scanning:</strong> Run <code>nmap -p 1-65535 target_ip</code> to scan all ports on a target.</li>
+                <li><strong>Service Detection:</strong> Use <code>nmap -sV target_ip</code> to detect services and their versions running on open ports.</li>
+                <li><strong>Operating System Detection:</strong> Execute <code>nmap -O target_ip</code> to identify the operating system of the target.</li>
+                <li><strong>Script Scanning:</strong> Utilize Nmap scripts for advanced scanning with <code>nmap --script=default target_ip</code>.</li>
+            </ol>
+        </section>
+
+        <section id="features">
+            <h2>Features of Nmap</h2>
+            <p>Nmap offers a wide range of features that make it a powerful tool for network scanning:</p>
+            <ul>
+                <li><strong>Host Discovery:</strong> Identify live hosts on a network.</li>
+                <li><strong>Port Scanning:</strong> Determine open ports and services on a target.</li>
+                <li><strong>Service and Version Detection:</strong> Identify services running on open ports and their versions.</li>
+                <li><strong>Operating System Detection:</strong> Determine the operating system of a target host.</li>
+                <li><strong>Network Mapping:</strong> Create a visual representation of the network.</li>
+                <li><strong>Scriptable Interaction:</strong> Use Nmap scripting engine (NSE) for advanced tasks.</li>
+            </ul>
+        </section>
+
+        <section id="examples">
+            <h2>Usage Examples</h2>
+            <p>Here are some common Nmap commands for penetration testing:</p>
+            <ul>
+                <li><code>nmap -sS target_ip</code> - TCP SYN scan (stealth scan).</li>
+                <li><code>nmap -sU target_ip</code> - UDP scan.</li>
+                <li><code>nmap -A target_ip</code> - Aggressive scan (includes OS detection, version detection, script scanning, and traceroute).</li>
+                <li><code>nmap -p 22,80,443 target_ip</code> - Scan specific ports (SSH, HTTP, HTTPS).</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h2>Additional Resources</h2>
+            <p>For more information, visit the official Nmap website: <a href="https://nmap.org" target="_blank">nmap.org</a></p>
+            <p>Check out the Nmap documentation for detailed usage: <a href="https://nmap.org/book/man.html" target="_blank">Nmap Manual</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+        <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+        <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+    </footer>
+    <script>
+        document.querySelector('.navbar-toggle').addEventListener('click', function() {
+            document.querySelector('.navbar-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

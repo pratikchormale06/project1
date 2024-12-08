@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydra Tool</title>
+    <link rel="stylesheet" href="Hydra.css">
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : Hydra</h1>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">PenTest Tools</a>
+            <button class="navbar-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<main>
+    <section id="about">
+        <h2>About Hydra</h2>
+        <p>Hydra is a fast and flexible network logon cracker that supports numerous protocols for attack. It's often used for penetration testing and security research to test password security.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Support for multiple protocols (SSH, FTP, HTTP(S), etc.)</li>
+            <li>Parallel connection testing</li>
+            <li>Flexible and modular architecture</li>
+            <li>Support for multiple authentication methods</li>
+            <li>IPv4 and IPv6 support</li>
+            <li>Multiple user/password list support</li>
+        </ul>
+
+        <h3>Supported Protocols</h3>
+        <div class="protocols-grid">
+            <ul>
+                <li>Cisco AAA</li>
+                <li>Cisco auth</li>
+                <li>Cisco enable</li>
+                <li>CVS</li>
+                <li>FTP</li>
+                <li>HTTP(S)</li>
+                <li>ICQ</li>
+                <li>IMAP</li>
+                <li>IRC</li>
+                <li>LDAP</li>
+                <li>MS-SQL</li>
+                <li>MySQL</li>
+                <li>NNTP</li>
+                <li>Oracle Listener</li>
+                <li>Oracle SID</li>
+                <li>PC-Anywhere</li>
+                <li>PCNFS</li>
+                <li>POP3</li>
+                <li>PostgreSQL</li>
+                <li>RDP</li>
+                <li>Rexec</li>
+                <li>Rlogin</li>
+                <li>Rsh</li>
+                <li>RTSP</li>
+                <li>SAP/R3</li>
+                <li>SIP</li>
+                <li>SMB</li>
+                <li>SMTP</li>
+                <li>SNMP</li>
+                <li>SOCKS5</li>
+                <li>SSH</li>
+                <li>SSHKEY</li>
+                <li>Subversion</li>
+                <li>Teamspeak</li>
+                <li>Telnet</li>
+                <li>VMware-Auth</li>
+                <li>VNC</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        
+        <h3>On Kali Linux</h3>
+        <div class="code-block">
+            <code>sudo apt update && sudo apt install hydra</code>
+        </div>
+
+        <h3>From Source</h3>
+        <div class="code-block">
+            <code>git clone https://github.com/vanhauser-thc/thc-hydra.git
+cd thc-hydra
+./configure
+make
+sudo make install</code>
+        </div>
+
+        <h3>Verify Installation</h3>
+        <div class="code-block">
+            <code>hydra -h</code>
+        </div>
+    </section>
+
+    <section id="basic-usage">
+        <h2>Basic Usage Guide</h2>
+
+        <h3>Basic Syntax</h3>
+        <div class="code-block">
+            <code>hydra -l username -P passwordlist.txt target protocol</code>
+        </div>
+
+        <h3>1. SSH Attack</h3>
+        <div class="code-block">
+            <p>Single user, password list:</p>
+            <code>hydra -l user -P passwords.txt ssh://192.168.1.1</code>
+        </div>
+
+        <h3>2. FTP Attack</h3>
+        <div class="code-block">
+            <p>Username list, single password:</p>
+            <code>hydra -L users.txt -p password ftp://192.168.1.1</code>
+        </div>
+
+        <h3>3. Web Form Attack</h3>
+        <div class="code-block">
+            <p>HTTP POST form:</p>
+            <code>hydra -l admin -P passwords.txt 192.168.1.1 http-post-form "/login.php:username=^USER^&password=^PASS^:Login failed"</code>
+        </div>
+    </section>
+
+    <section id="advanced-usage">
+        <h2>Advanced Usage</h2>
+
+        <h3>1. Multiple Threads</h3>
+        <div class="code-block">
+            <p>Use 16 parallel connections:</p>
+            <code>hydra -t 16 -l admin -P passwords.txt 192.168.1.1 ssh</code>
+        </div>
+
+        <h3>2. Verbose Output</h3>
+        <div class="code-block">
+            <code>hydra -v -v -l admin -P passwords.txt 192.168.1.1 ssh</code>
+        </div>
+
+        <h3>3. Output to File</h3>
+        <div class="code-block">
+            <code>hydra -l admin -P passwords.txt 192.168.1.1 ssh -o output.txt</code>
+        </div>
+
+        <h3>4. Specific Port</h3>
+        <div class="code-block">
+            <code>hydra -l admin -P passwords.txt 192.168.1.1 -s 2222 ssh</code>
+        </div>
+    </section>
+
+    <section id="practical-examples">
+        <h2>Practical Examples</h2>
+        
+        <h3>WordPress Login</h3>
+        <div class="code-block">
+            <code>hydra -l admin -P wordlist.txt 192.168.1.1 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:Invalid username"</code>
+        </div>
+
+        <h3>RDP Attack</h3>
+        <div class="code-block">
+            <code>hydra -t 1 -V -f -l administrator -P passwords.txt rdp://192.168.1.1</code>
+        </div>
+
+        <h3>MySQL Database</h3>
+        <div class="code-block">
+            <code>hydra -l root -P passwords.txt 192.168.1.1 mysql</code>
+        </div>
+    </section>
+
+    <section id="common-options">
+        <h2>Common Hydra Options</h2>
+        <div class="code-block">
+            <ul>
+                <li><code>-l [login]</code>: Single username</li>
+                <li><code>-L [file]</code>: List of usernames</li>
+                <li><code>-p [pass]</code>: Single password</li>
+                <li><code>-P [file]</code>: List of passwords</li>
+                <li><code>-t [tasks]</code>: Number of parallel connections</li>
+                <li><code>-s [port]</code>: Specific port number</li>
+                <li><code>-o [file]</code>: Output file</li>
+                <li><code>-v</code>: Verbose mode</li>
+                <li><code>-V</code>: Show login attempts</li>
+                <li><code>-f</code>: Stop after first found login/password</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="best-practices">
+        <h2>Best Practices</h2>
+        <ul>
+            <li><strong>Legal Compliance:</strong> Only test systems you have permission to test</li>
+            <li><strong>Resource Management:</strong> Start with fewer threads and increase as needed</li>
+            <li><strong>Timeout Settings:</strong> Adjust timeouts based on network conditions</li>
+            <li><strong>Wordlist Selection:</strong> Use appropriate wordlists for the target</li>
+            <li><strong>Documentation:</strong> Keep detailed logs of all testing activities</li>
+        </ul>
+    </section>
+
+    <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        <ul>
+            <li><strong>Connection Issues:</strong> Verify network connectivity and firewall rules</li>
+            <li><strong>Performance Problems:</strong> Adjust number of threads (-t option)</li>
+            <li><strong>False Positives:</strong> Verify success/failure messages in form attacks</li>
+            <li><strong>Rate Limiting:</strong> Use -c option to slow down attempts</li>
+        </ul>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+    <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+    <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+</footer>
+<script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

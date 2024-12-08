@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metasploit Framework Overview</title>
+    <link rel="stylesheet" href="metasploit.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : Metasploit Framework</h1>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">PenTest Tools</a>
+            <button class="navbar-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h1>About Metasploit Framework</h1>
+            <p>The Metasploit Framework is an open-source penetration testing platform that enables security professionals to find and exploit vulnerabilities in systems. It provides a suite of tools for developing and executing exploit code against remote targets.</p>
+            <p>Metasploit is widely used for:</p>
+            <ul>
+                <li>Vulnerability assessment</li>
+                <li>Exploit development</li>
+                <li>Network attacks</li>
+                <li>Web application testing</li>
+            </ul>
+        </section>
+
+        <section id="usage">
+            <h2>How to Use Metasploit</h2>
+            <p>To effectively use Metasploit, follow these steps:</p>
+            <ol>
+                <li><strong>Install Metasploit:</strong> Download and install Metasploit from the official website: <a href="https://www.metasploit.com/download" target="_blank">metasploit.com/download</a>.</li>
+                <li><strong>Open Metasploit Console:</strong> Launch the Metasploit console by typing <code>msfconsole</code> in your terminal.</li>
+                <li><strong>Search for Exploits:</strong> Use the command <code>search <exploit_name></code> to find specific exploits.</li>
+                <li><strong>Select an Exploit:</strong> Use the command <code>use <exploit_path></code> to select the desired exploit.</li>
+                <li><strong>Set Options:</strong> Configure the required options using <code>set <option_name> <value></code>.</li>
+                <li><strong>Run the Exploit:</strong> Execute the exploit with the command <code>exploit</code>.</li>
+            </ol>
+        </section>
+
+        <section id="features">
+            <h2>Features of Metasploit</h2>
+            <p>Metasploit offers a wide range of features that make it a powerful tool for penetration testing:</p>
+            <ul>
+                <li><strong>Extensive Exploit Database:</strong> Access to a large collection of exploits and payloads.</li>
+                <li><strong>Post-Exploitation Modules:</strong> Tools for maintaining access and gathering information after exploitation.</li>
+                <li><strong>Customizable Payloads:</strong> Create and modify payloads to suit specific needs.</li>
+                <li><strong>Community Support:</strong> A large community of users and contributors for support and resources.</li>
+                <li><strong>Integration with Other Tools:</strong> Works well with other security tools and frameworks.</li>
+            </ul>
+        </section>
+
+        <section id="examples">
+            <h2>Usage Examples</h2>
+            <p>Here are some common commands used in Metasploit:</p>
+            <ul>
+                <li><code>msfconsole</code> - Start the Metasploit console.</li>
+                <li><code>search ms08_067</code> - Search for the MS08-067 exploit.</li>
+                <li><code>use exploit/windows/smb/ms08_067_netapi</code> - Select the MS08-067 exploit.</li>
+                <li><code>set RHOST 192.168.1.10</code> - Set the target IP address.</li>
+                <li><code>exploit</code> - Execute the exploit.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h2>Additional Resources</h2>
+            <p>For more information, visit the official Metasploit website: <a href="https://www.metasploit.com" target="_blank">metasploit.com</a></p>
+            <p>Check out the Metasploit documentation for detailed usage: <a href="https://docs.metasploit.com" target="_blank">Metasploit Documentation</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+        <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+        <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+    </footer>
+    <script>
+        document.querySelector('.navbar-toggle').addEventListener('click', function() {
+            document.querySelector('.navbar-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

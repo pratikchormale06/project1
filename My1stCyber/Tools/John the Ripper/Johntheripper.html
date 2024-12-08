@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John the Ripper Tool</title>
+    <link rel="stylesheet" href="Johntheripper.css">
+    <!-- Keep your existing CSS -->
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : John the Ripper</h1>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">PenTest Tools</a>
+            <button class="navbar-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<main>
+    <section id="about">
+        <h2>About John the Ripper</h2>
+        <p>John the Ripper is an advanced password cracker, combining several cracking modes in one package. It's designed to detect weak Unix passwords, but can also crack various other types of password hashes.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Auto-detection of hash types</li>
+            <li>Multiple cracking modes (Dictionary, Incremental, etc.)</li>
+            <li>Custom rules for password generation</li>
+            <li>Support for multiple platforms and hash types</li>
+            <li>Parallel processing capabilities</li>
+        </ul>
+
+        <h3>Supported Hash Types</h3>
+        <ul>
+            <li>Unix crypt(3) hash types</li>
+            <li>Windows NTLM hashes</li>
+            <li>MD5 and SHA variants</li>
+            <li>MySQL, PostgreSQL, Oracle hashes</li>
+            <li>Kerberos AFS</li>
+            <li>PDF, ZIP, RAR passwords</li>
+        </ul>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        <h3>Linux Installation</h3>
+        <code>sudo apt-get update && sudo apt-get install john</code>
+
+        <h3>Building from Source</h3>
+        <ol>
+            <li>Download source:
+                <code>git clone https://github.com/openwall/john.git</code>
+            </li>
+            <li>Navigate to source directory:
+                <code>cd john/src</code>
+            </li>
+            <li>Configure and compile:
+                <code>./configure && make</code>
+            </li>
+        </ol>
+    </section>
+
+    <section id="usage">
+        <h2>Basic Usage Guide</h2>
+
+        <h3>1. Basic Password Cracking</h3>
+        <div class="code-block">
+            <p>Crack a password file:</p>
+            <code>john password.txt</code>
+            <p>Show cracked passwords:</p>
+            <code>john --show password.txt</code>
+        </div>
+
+        <h3>2. Dictionary Attack</h3>
+        <div class="code-block">
+            <p>Using a wordlist:</p>
+            <code>john --wordlist=/path/to/wordlist.txt password.txt</code>
+            <p>With rules:</p>
+            <code>john --wordlist=/path/to/wordlist.txt --rules password.txt</code>
+        </div>
+
+        <h3>3. Incremental Mode</h3>
+        <div class="code-block">
+            <p>Full incremental mode:</p>
+            <code>john --incremental password.txt</code>
+            <p>Specific character set:</p>
+            <code>john --incremental=Alpha password.txt</code>
+        </div>
+
+        <h3>4. Format-Specific Attacks</h3>
+        <div class="code-block">
+            <p>Specify hash format:</p>
+            <code>john --format=raw-md5 password.txt</code>
+            <p>List available formats:</p>
+            <code>john --list=formats</code>
+        </div>
+
+        <h3>5. Advanced Options</h3>
+        <div class="code-block">
+            <ul>
+                <li>Use multiple cores:
+                    <code>john --fork=4 password.txt</code>
+                </li>
+                <li>Session management:
+                    <code>john --restore=session_name</code>
+                </li>
+                <li>Custom character sets:
+                    <code>john --incremental=Custom --mask='?l?l?l?d?d'</code>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="practical-examples">
+        <h2>Practical Examples</h2>
+        
+        <h3>Cracking Linux Shadow Passwords</h3>
+        <div class="code-block">
+            <ol>
+                <li>First, combine passwd and shadow files:
+                    <code>unshadow /etc/passwd /etc/shadow > passwords.txt</code>
+                </li>
+                <li>Then crack the combined file:
+                    <code>john passwords.txt</code>
+                </li>
+            </ol>
+        </div>
+
+        <h3>Cracking Windows NTLM Hashes</h3>
+        <div class="code-block">
+            <code>john --format=NT hash.txt</code>
+        </div>
+
+        <h3>Cracking ZIP Files</h3>
+        <div class="code-block">
+            <ol>
+                <li>Convert ZIP to John format:
+                    <code>zip2john encrypted.zip > zip.hash</code>
+                </li>
+                <li>Crack the hash:
+                    <code>john zip.hash</code>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="best-practices">
+        <h2>Best Practices</h2>
+        <ul>
+            <li><strong>Performance Optimization:</strong> Use appropriate modes and rules for your target</li>
+            <li><strong>Resource Management:</strong> Monitor system resources during intensive cracking</li>
+            <li><strong>Wordlist Selection:</strong> Use context-appropriate wordlists</li>
+            <li><strong>Session Management:</strong> Save sessions for long-running tasks</li>
+            <li><strong>Legal Compliance:</strong> Only use on systems you own or have permission to test</li>
+            <li><strong>Documentation:</strong> Keep records of successful techniques and configurations</li>
+        </ul>
+    </section>
+
+    <section id="troubleshooting">
+        <h2>Common Issues and Solutions</h2>
+        <ul>
+            <li><strong>Slow Performance:</strong> Try using --fork option or adjust --max-length</li>
+            <li><strong>Format Errors:</strong> Verify hash format with --list=formats</li>
+            <li><strong>Memory Issues:</strong> Reduce hash table size with --max-length</li>
+            <li><strong>Session Crashes:</strong> Use --restore to continue from last point</li>
+        </ul>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+    <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+    <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+</footer>
+<script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

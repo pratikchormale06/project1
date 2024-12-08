@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maltego Tool</title>
+    <link rel="stylesheet" href="Maltego.css">
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : Maltego</h1>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">PenTest Tools</a>
+            <button class="navbar-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<main>
+    <section id="about">
+        <h2>About Maltego</h2>
+        <p>Maltego is a powerful data mining and intelligence gathering tool that provides a unique perspective on relationships between pieces of information on the internet.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Visual link analysis</li>
+            <li>Real-time data mining</li>
+            <li>Integrated transforms for data gathering</li>
+            <li>Multiple data source integration</li>
+            <li>Custom transform development</li>
+            <li>Graph-based visualization</li>
+            <li>Collaborative investigation capabilities</li>
+        </ul>
+
+        <h3>Available Editions</h3>
+        <div class="editions-grid">
+            <div class="edition-card">
+                <h4>Community Edition (CE)</h4>
+                <ul>
+                    <li>Free version</li>
+                    <li>Limited transforms</li>
+                    <li>Basic features</li>
+                    <li>Community support</li>
+                </ul>
+            </div>
+            <div class="edition-card">
+                <h4>Classic Edition</h4>
+                <ul>
+                    <li>Professional use</li>
+                    <li>Full transform set</li>
+                    <li>Advanced features</li>
+                    <li>Technical support</li>
+                </ul>
+            </div>
+            <div class="edition-card">
+                <h4>XL Edition</h4>
+                <ul>
+                    <li>Enterprise use</li>
+                    <li>Extended capabilities</li>
+                    <li>Premium support</li>
+                    <li>Collaboration features</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        
+        <h3>Download and Install</h3>
+        <ol>
+            <li>Visit the <a href="https://www.maltego.com/downloads/" target="_blank">official Maltego website</a></li>
+            <li>Choose your edition</li>
+            <li>Download the appropriate version for your OS</li>
+            <li>Run the installer</li>
+            <li>Follow the setup wizard</li>
+        </ol>
+
+        <div class="tip-box">
+            <p><strong>Tip:</strong> Maltego is also pre-installed in Kali Linux under Applications → Information Gathering → Maltego</p>
+        </div>
+    </section>
+
+    <section id="basic-usage">
+        <h2>Basic Usage Guide</h2>
+
+        <h3>1. Starting a New Investigation</h3>
+        <ol>
+            <li>Launch Maltego</li>
+            <li>Create a new graph</li>
+            <li>Select an entity type from the palette</li>
+            <li>Drag and drop it onto the graph</li>
+            <li>Double-click to edit entity details</li>
+        </ol>
+
+        <h3>2. Running Transforms</h3>
+        <div class="usage-steps">
+            <ol>
+                <li>Right-click on an entity</li>
+                <li>Select "Run Transform"</li>
+                <li>Choose appropriate transform</li>
+                <li>View results on the graph</li>
+            </ol>
+        </div>
+
+        <h3>3. Common Entity Types</h3>
+        <div class="entity-grid">
+            <ul>
+                <li>Domain</li>
+                <li>IP Address</li>
+                <li>Email Address</li>
+                <li>Person</li>
+                <li>Organization</li>
+                <li>Website</li>
+                <li>Social Media Profile</li>
+                <li>Phone Number</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="advanced-features">
+        <h2>Advanced Features</h2>
+
+        <h3>1. Custom Transforms</h3>
+        <div class="feature-box">
+            <p>Create your own transforms:</p>
+            <ol>
+                <li>Use Transform Development Environment (TDS)</li>
+                <li>Write Python scripts for custom functionality</li>
+                <li>Integrate with external APIs</li>
+                <li>Test and deploy transforms</li>
+            </ol>
+        </div>
+
+        <h3>2. Data Mining</h3>
+        <div class="feature-box">
+            <ul>
+                <li>WHOIS lookups</li>
+                <li>DNS enumeration</li>
+                <li>Social media mining</li>
+                <li>Email verification</li>
+                <li>Network infrastructure analysis</li>
+            </ul>
+        </div>
+
+        <h3>3. Machine Learning Integration</h3>
+        <div class="feature-box">
+            <ul>
+                <li>Pattern recognition</li>
+                <li>Relationship prediction</li>
+                <li>Anomaly detection</li>
+                <li>Automated entity classification</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="use-cases">
+        <h2>Common Use Cases</h2>
+        
+        <div class="use-case-grid">
+            <div class="use-case-card">
+                <h3>Cybersecurity Investigation</h3>
+                <ul>
+                    <li>Threat actor profiling</li>
+                    <li>Infrastructure mapping</li>
+                    <li>Attack surface analysis</li>
+                    <li>Incident response</li>
+                </ul>
+            </div>
+
+            <div class="use-case-card">
+                <h3>OSINT Gathering</h3>
+                <ul>
+                    <li>Company research</li>
+                    <li>Digital footprint analysis</li>
+                    <li>Social network mapping</li>
+                    <li>Email investigation</li>
+                </ul>
+            </div>
+
+            <div class="use-case-card">
+                <h3>Network Analysis</h3>
+                <ul>
+                    <li>Domain enumeration</li>
+                    <li>Infrastructure mapping</li>
+                    <li>Service discovery</li>
+                    <li>Vulnerability assessment</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="best-practices">
+        <h2>Best Practices</h2>
+        <ul>
+            <li><strong>Data Organization:</strong> Use meaningful entity names and descriptions</li>
+            <li><strong>Graph Management:</strong> Keep graphs focused and organized</li>
+            <li><strong>Transform Selection:</strong> Choose appropriate transforms for your investigation</li>
+            <li><strong>Documentation:</strong> Document your investigation process</li>
+            <li><strong>Data Verification:</strong> Verify findings through multiple sources</li>
+            <li><strong>Resource Management:</strong> Monitor API usage and limits</li>
+        </ul>
+    </section>
+
+    <section id="tips-tricks">
+        <h2>Tips and Tricks</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h3>Performance</h3>
+                <ul>
+                    <li>Use bookmarks for common transforms</li>
+                    <li>Clear graph cache regularly</li>
+                    <li>Limit transform scope when possible</li>
+                    <li>Use machine settings for optimal performance</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3>Visualization</h3>
+                <ul>
+                    <li>Use different layouts for better clarity</li>
+                    <li>Group related entities</li>
+                    <li>Use custom entity colors</li>
+                    <li>Export graphs in different formats</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3>Investigation</h3>
+                <ul>
+                    <li>Start with known entities</li>
+                    <li>Use multiple data sources</li>
+                    <li>Verify findings manually</li>
+                    <li>Document your methodology</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+    <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+    <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+</footer>
+<script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

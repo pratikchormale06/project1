@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burp Suite Tool</title>
+    <link rel="stylesheet" href="burpsuite.css">
+    <!-- Keep your existing CSS -->
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : Burp Suite</h1>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">PenTest Tools</a>
+            <button class="navbar-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<main>
+    <section id="about">
+        <h2>About Burp Suite</h2>
+        <p>Burp Suite is an industry-standard web application security testing platform. It's developed by PortSwigger and is essential for security professionals and penetration testers.</p>
+        <h3>Key Features</h3>
+        <ul>
+            <li>Intercepting Proxy for capturing and modifying HTTP/S traffic</li>
+            <li>Advanced web vulnerability scanner</li>
+            <li>Automated and manual testing capabilities</li>
+            <li>Customizable with extensions and plugins</li>
+            <li>Comprehensive reporting and documentation tools</li>
+        </ul>
+        <h3>Use Cases</h3>
+        <ul>
+            <li>Web Application Security Testing</li>
+            <li>API Security Assessment</li>
+            <li>Mobile App Security Testing</li>
+            <li>Vulnerability Research</li>
+        </ul>
+        <h3>Available Editions</h3>
+        <ul>
+            <li><strong>Community Edition:</strong> Free version with basic manual testing tools</li>
+            <li><strong>Professional:</strong> Full-featured version for security professionals</li>
+            <li><strong>Enterprise:</strong> Advanced solution for large organizations</li>
+        </ul>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        <p>To install Burp Suite, follow these steps:</p>
+        <ol>
+            <li>Visit the <a href="https://portswigger.net/burp/releases" target="_blank">official PortSwigger website</a></li>
+            <li>Download the appropriate version for your operating system</li>
+            <li>Install Java Runtime Environment (JRE) if not already installed</li>
+            <li>Run the Burp Suite installer</li>
+            <li>Configure your browser to work with Burp Suite's proxy</li>
+            <li>Install Burp's CA certificate in your browser</li>
+        </ol>
+    </section>
+
+    <section id="usage">
+        <h2>Core Tools and Usage</h2>
+        <h3>Proxy</h3>
+        <ul>
+            <li>Intercept and modify HTTP/S requests and responses</li>
+            <li>Analyze web traffic in real-time</li>
+            <li>Forward, drop, or modify intercepted traffic</li>
+        </ul>
+
+        <h3>Scanner</h3>
+        <ul>
+            <li>Automated vulnerability detection</li>
+            <li>Customizable scan configurations</li>
+            <li>Detailed vulnerability reports</li>
+        </ul>
+
+        <h3>Repeater</h3>
+        <ul>
+            <li>Manual request manipulation and testing</li>
+            <li>Response analysis</li>
+            <li>Quick payload testing</li>
+        </ul>
+
+        <h3>Intruder</h3>
+        <ul>
+            <li>Automated attack payload testing</li>
+            <li>Multiple attack types (Sniper, Battering Ram, Pitchfork, Cluster Bomb)</li>
+            <li>Custom payload lists and processors</li>
+        </ul>
+
+        <h3>Advanced Features</h3>
+        <ul>
+            <li><strong>Decoder:</strong> Encode/decode data in various formats</li>
+            <li><strong>Comparer:</strong> Compare different responses or data sets</li>
+            <li><strong>Sequencer:</strong> Analyze token randomness</li>
+            <li><strong>Extender:</strong> Add custom functionality through BApp Store</li>
+        </ul>
+    </section>
+
+    <section id="best-practices">
+        <h2>Best Practices</h2>
+        <ul>
+            <li><strong>Scope Setting:</strong> Always define your target scope properly</li>
+            <li><strong>Project Files:</strong> Save your work regularly using project files</li>
+            <li><strong>Target Configuration:</strong> Use appropriate scan configurations</li>
+            <li><strong>Resource Management:</strong> Monitor system resources during scans</li>
+            <li><strong>Documentation:</strong> Maintain detailed records of your findings</li>
+            <li><strong>Legal Compliance:</strong> Ensure you have proper authorization for testing</li>
+        </ul>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+    <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+    <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+</footer>
+<script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

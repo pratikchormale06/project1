@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aircrack-ng Tool</title>
+    <link rel="stylesheet" href="aircrack.css">
+    <!-- Keep your existing CSS -->
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : Aircrack-ng</h1>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">PenTest Tools</a>
+            <button class="navbar-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<main>
+    <section id="about">
+        <h2>About Aircrack-ng</h2>
+        <p>Aircrack-ng is a complete suite of tools to assess WiFi network security. It focuses on different areas of WiFi security: monitoring, attacking, testing, and cracking.</p>
+        <h3>Key Features</h3>
+        <ul>
+            <li>WiFi network packet capture and export</li>
+            <li>WEP and WPA/WPA2-PSK cracking</li>
+            <li>Attack on wireless networks</li>
+            <li>Analysis of WEP and WPA/WPA2-PSK encryption</li>
+            <li>Testing WiFi cards and driver capabilities</li>
+        </ul>
+        <h3>Use Cases</h3>
+        <ul>
+            <li>WiFi Network Security Assessment</li>
+            <li>Password Recovery Testing</li>
+            <li>Network Monitoring</li>
+            <li>Wireless Security Research</li>
+        </ul>
+        <h3>Components</h3>
+        <ul>
+            <li><strong>Aircrack-ng:</strong> WEP/WPA/WPA2-PSK cracker</li>
+            <li><strong>Airodump-ng:</strong> Packet capture tool</li>
+            <li><strong>Aireplay-ng:</strong> Packet injection tool</li>
+            <li><strong>Airmon-ng:</strong> Wireless card mode management</li>
+        </ul>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        <p>To install Aircrack-ng, follow these steps:</p>
+        <ol>
+            <li>For Linux (Debian/Ubuntu):
+                <code>sudo apt-get update && sudo apt-get install aircrack-ng</code>
+            </li>
+            <li>For macOS (using Homebrew):
+                <code>brew install aircrack-ng</code>
+            </li>
+            <li>For Windows:
+                <ul>
+                    <li>Download the latest binary from the official website</li>
+                    <li>Extract the files to a directory</li>
+                    <li>Add the directory to system PATH</li>
+                </ul>
+            </li>
+            <li>Verify installation:
+                <code>aircrack-ng --version</code>
+            </li>
+        </ol>
+    </section>
+
+    <section id="usage">
+        <h2>Core Tools and Usage</h2>
+        <h3>Airmon-ng</h3>
+        <ul>
+            <li>Start monitor mode: <code>airmon-ng start wlan0</code></li>
+            <li>Check interfering processes: <code>airmon-ng check</code></li>
+            <li>Kill interfering processes: <code>airmon-ng check kill</code></li>
+        </ul>
+
+        <h3>Airodump-ng</h3>
+        <ul>
+            <li>Scan networks: <code>airodump-ng wlan0mon</code></li>
+            <li>Target specific network: <code>airodump-ng -c [channel] --bssid [MAC] -w [file] wlan0mon</code></li>
+            <li>Capture handshake for WPA/WPA2 cracking</li>
+        </ul>
+
+        <h3>Aireplay-ng</h3>
+        <ul>
+            <li>Deauthentication attack: <code>aireplay-ng -0 [number] -a [MAC] wlan0mon</code></li>
+            <li>Fake authentication: <code>aireplay-ng -1 0 -a [MAC] wlan0mon</code></li>
+            <li>ARP request replay: <code>aireplay-ng -3 -b [MAC] wlan0mon</code></li>
+        </ul>
+
+        <h3>Aircrack-ng</h3>
+        <ul>
+            <li>Crack WEP: <code>aircrack-ng [capture file]</code></li>
+            <li>Crack WPA/WPA2: <code>aircrack-ng -w [wordlist] [capture file]</code></li>
+            <li>Use multiple CPU cores: <code>aircrack-ng -p [number] [capture file]</code></li>
+        </ul>
+    </section>
+
+    <section id="best-practices">
+        <h2>Best Practices</h2>
+        <ul>
+            <li><strong>Legal Compliance:</strong> Only test networks you own or have explicit permission to test</li>
+            <li><strong>Hardware Selection:</strong> Use compatible wireless cards that support packet injection</li>
+            <li><strong>Documentation:</strong> Keep detailed records of your testing procedures</li>
+            <li><strong>Resource Management:</strong> Monitor system resources during intensive cracking sessions</li>
+            <li><strong>Backup:</strong> Save capture files for analysis and documentation</li>
+            <li><strong>Security:</strong> Use strong passwords and encryption on your own networks</li>
+        </ul>
+    </section>
+
+    <section id="disclaimer">
+        <h2>Important Disclaimer</h2>
+        <p>Using Aircrack-ng to break into networks you don't own or have permission to test is illegal in most jurisdictions. This tool should only be used for:</p>
+        <ul>
+            <li>Testing your own network security</li>
+            <li>Authorized penetration testing</li>
+            <li>Educational purposes in a controlled environment</li>
+            <li>Network security research with proper authorization</li>
+        </ul>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+    <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+    <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+</footer>
+<script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

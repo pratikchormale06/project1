@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikto Tool</title>
+    <link rel="stylesheet" href="Nikto.css">
+</head>
+<body>
+    <header>
+        <h1>Penetration Testing : Nikto</h1>
+    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">PenTest Tools</a>
+            <button class="navbar-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Cybersecurity</a></li>
+                <li class="navbar-item"><a href="/test.html" class="navbar-link">Penetration Testing</a></li>
+                <li class="navbar-item"><a href="/Navbar/tools.html" class="navbar-link">Tools</a></li>
+                <li class="navbar-item"><a href="/Navbar/about.html" class="navbar-link">About</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<main>
+    <section id="about">
+        <h2>About Nikto</h2>
+        <p>Nikto is an open-source web server scanner that performs comprehensive tests against web servers for multiple items, including dangerous files/CGIs, outdated versions of servers, and version-specific problems.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+            <li>Scans for over 6700 potentially dangerous files/CGIs</li>
+            <li>Checks for outdated server versions</li>
+            <li>Identifies installed server modules and software</li>
+            <li>SSL support for testing HTTPS servers</li>
+            <li>Multiple report formats (text, HTML, XML, etc.)</li>
+            <li>Proxy support for scanning through firewalls</li>
+            <li>Customizable through plugins and configuration</li>
+        </ul>
+    </section>
+
+    <section id="installation">
+        <h2>Installation</h2>
+        
+        <h3>On Kali Linux</h3>
+        <div class="code-block">
+            <code>sudo apt update && sudo apt install nikto</code>
+        </div>
+
+        <h3>Using Git</h3>
+        <div class="code-block">
+            <code>git clone https://github.com/sullo/nikto.git</code>
+        </div>
+
+        <h3>Verify Installation</h3>
+        <div class="code-block">
+            <code>nikto -Version</code>
+        </div>
+    </section>
+
+    <section id="basic-usage">
+        <h2>Basic Usage Guide</h2>
+
+        <h3>1. Basic Scan</h3>
+        <div class="code-block">
+            <p>Perform a basic scan of a website:</p>
+            <code>nikto -h http://example.com</code>
+        </div>
+
+        <h3>2. HTTPS Scan</h3>
+        <div class="code-block">
+            <p>Scan an HTTPS website:</p>
+            <code>nikto -h https://example.com -ssl</code>
+        </div>
+
+        <h3>3. Save Output</h3>
+        <div class="code-block">
+            <p>Save scan results to a file:</p>
+            <code>nikto -h http://example.com -o report.html -Format html</code>
+        </div>
+    </section>
+
+    <section id="advanced-usage">
+        <h2>Advanced Usage</h2>
+
+        <h3>1. Port Scanning</h3>
+        <div class="code-block">
+            <p>Scan specific port:</p>
+            <code>nikto -h example.com -p 8080</code>
+            <p>Scan multiple ports:</p>
+            <code>nikto -h example.com -p 80,443,8080</code>
+        </div>
+
+        <h3>2. Authentication</h3>
+        <div class="code-block">
+            <p>Basic authentication:</p>
+            <code>nikto -h example.com -id admin:password</code>
+        </div>
+
+        <h3>3. Proxy Usage</h3>
+        <div class="code-block">
+            <p>Use a proxy:</p>
+            <code>nikto -h example.com -useproxy http://proxy:8080</code>
+        </div>
+
+        <h3>4. Tuning Options</h3>
+        <div class="code-block">
+            <ul>
+                <li>Test specific vulnerabilities:
+                    <code>nikto -h example.com -Tuning 1,2,3</code>
+                </li>
+                <li>Exclude certain tests:
+                    <code>nikto -h example.com -Tuning x</code>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="tuning-options">
+        <h2>Tuning Options Reference</h2>
+        <div class="code-block">
+            <ul>
+                <li><code>0</code> - File Upload</li>
+                <li><code>1</code> - Interesting File / Seen in logs</li>
+                <li><code>2</code> - Misconfiguration / Default File</li>
+                <li><code>3</code> - Information Disclosure</li>
+                <li><code>4</code> - Injection (XSS/Script/HTML)</li>
+                <li><code>5</code> - Remote File Retrieval</li>
+                <li><code>6</code> - Denial of Service</li>
+                <li><code>7</code> - Remote File Retrieval</li>
+                <li><code>8</code> - Command Execution / Remote Shell</li>
+                <li><code>9</code> - SQL Injection</li>
+                <li><code>a</code> - Authentication Bypass</li>
+                <li><code>b</code> - Software Identification</li>
+                <li><code>c</code> - Remote Source Inclusion</li>
+                <li><code>x</code> - Reverse Tuning Options</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="practical-examples">
+        <h2>Practical Examples</h2>
+        
+        <h3>Comprehensive Scan</h3>
+        <div class="code-block">
+            <code>nikto -h example.com -C all</code>
+        </div>
+
+        <h3>Stealthy Scan</h3>
+        <div class="code-block">
+            <code>nikto -h example.com -evasion 1</code>
+        </div>
+
+        <h3>Full Report with Multiple Formats</h3>
+        <div class="code-block">
+            <code>nikto -h example.com -o report.html -Format htm,csv,txt</code>
+        </div>
+    </section>
+
+    <section id="best-practices">
+        <h2>Best Practices</h2>
+        <ul>
+            <li><strong>Legal Compliance:</strong> Only scan systems you have permission to test</li>
+            <li><strong>Documentation:</strong> Always save scan results for future reference</li>
+            <li><strong>Performance:</strong> Use tuning options to focus scans on relevant tests</li>
+            <li><strong>Validation:</strong> Manually verify findings to eliminate false positives</li>
+            <li><strong>Updates:</strong> Keep Nikto and its databases updated</li>
+        </ul>
+    </section>
+
+    <section id="common-flags">
+        <h2>Common Nikto Flags</h2>
+        <div class="code-block">
+            <ul>
+                <li><code>-h</code>: Target host</li>
+                <li><code>-p</code>: Port number(s)</li>
+                <li><code>-ssl</code>: Force SSL mode</li>
+                <li><code>-nossl</code>: Disable SSL mode</li>
+                <li><code>-output</code>: Save output to file</li>
+                <li><code>-Format</code>: Output format</li>
+                <li><code>-Tuning</code>: Scan tuning</li>
+                <li><code>-timeout</code>: Response timeout</li>
+                <li><code>-evasion</code>: Evasion technique</li>
+                <li><code>-update</code>: Update databases</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        <ul>
+            <li><strong>Timeouts:</strong> Adjust timeout settings with -timeout option</li>
+            <li><strong>False Positives:</strong> Use tuning options to reduce false positives</li>
+            <li><strong>Blocked Requests:</strong> Try different evasion techniques</li>
+            <li><strong>SSL Errors:</strong> Verify SSL configuration and certificates</li>
+        </ul>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Cybersecurity and Penetration Testing Resource. All rights reserved.</p>
+    <p>Developed by <a href="#" target="_blank">Your Organization</a></p>
+    <p><a href="#" target="_blank">Privacy Policy</a> | <a href="#" target="_blank">Terms of Service</a></p>
+</footer>
+<script>
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+</script>
+</body>
+</html>
